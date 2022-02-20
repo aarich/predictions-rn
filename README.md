@@ -1,6 +1,6 @@
 <p align="center">
   <a href="https://apps.apple.com/app/apple-store/id1608077436?pt=117925864&ct=rm&mt=8" style="width: 170px; height: 170px; border-radius: 22%; overflow: hidden; display: inline-block; vertical-align: middle;">
-    <img src="https://github.com/aarich/predictions-rn/raw/master/assets/images/icon512.png" width="40" heigth="40" alt="Whattl Icon">
+    <img src="https://github.com/aarich/predictions-rn/raw/master/assets/images/icon512.png" width="100" heigth="100" alt="Whattl Icon">
   </a>
 
   <h2 align="center">Whattl</h2>
