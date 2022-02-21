@@ -7,7 +7,7 @@
 </p>
 
 <div align="center">
-  <a href="https://apps.apple.com/app/apple-store/id1552960395?pt=117925864&ct=readme&mt=8">
+  <a href="https://apps.apple.com/app/apple-store/id1608077436?pt=117925864&ct=rm&mt=8">
     <img alt="Download on the App Store" title="App Store" src="https://github.com/aarich/predictions-rn/raw/master/assets/images/downloadOnAppStore.png" width="200">
   </a>
   <a href="https://play.google.com/store/apps/details?id=rich.alex.predictions">
