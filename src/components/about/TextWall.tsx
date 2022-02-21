@@ -1,8 +1,8 @@
-import { Layout } from '@ui-kitten/components';
 import { ReactNode } from 'react';
-import { ScrollView, StyleSheet } from 'react-native';
+import { ScrollView } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { keyed } from '../../utils';
+import { Layout } from '../base';
 
 type Props = {
   elements: ReactNode[];
@@ -11,14 +11,10 @@ type Props = {
 const TextWall = ({ elements }: Props) => {
   const paddingBottom = useSafeAreaInsets().bottom;
   return (
-    <Layout level="2" style={[styles.flex, { paddingBottom }]}>
-      <ScrollView>{keyed([...elements])}</ScrollView>
+    <Layout l2 flex>
+      <ScrollView style={{ paddingBottom }}>{keyed([...elements])}</ScrollView>
     </Layout>
   );
 };
 
 export default TextWall;
-
-const styles = StyleSheet.create({
-  flex: { flex: 1 },
-});

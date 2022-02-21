@@ -1,7 +1,6 @@
-import { Layout } from '@ui-kitten/components';
 import { StyleSheet } from 'react-native';
 import { IconsOutlined, Spacings } from '../../utils';
-import { Button, Text, View } from '../base';
+import { Button, Layout, Text, View } from '../base';
 
 type Props = {
   storageUsage: string;
@@ -10,7 +9,7 @@ type Props = {
 
 const ResetCache = ({ storageUsage, onReset }: Props) => {
   return (
-    <Layout level="2" style={styles.container}>
+    <Layout l2 style={styles.container}>
       <Text center>
         Seeing something buggy? Clear the cache to reset your app data, without
         logging you out. This may briefly increase data usage as you

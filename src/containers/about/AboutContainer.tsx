@@ -43,6 +43,13 @@ const elements = [
     a('mrarich.com/about', 'here'),
     '.'
   ),
+  p(),
+  p(
+    `${MyConstants.manifest?.name} is "open source," meaning that most of the code is entirely public! Check it out `,
+    a('github.com/aarich/predictions-rn', 'on GitHub'),
+    ' and, if you like, make an improvement. We are also built on top of great open source software like the ones listed above.'
+  ),
+  p(),
   p(
     `Version ${MyConstants.version} © ${new Date(
       Date.now()
