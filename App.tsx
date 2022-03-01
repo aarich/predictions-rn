@@ -1,13 +1,13 @@
+import 'react-native-gesture-handler';
+import 'react-native-reanimated';
+import 'react-native-get-random-values';
+import 'react-native-url-polyfill/auto';
 import { CustomSchemaType } from '@eva-design/dss';
 import * as eva from '@eva-design/eva';
 import { ApplicationProvider, IconRegistry } from '@ui-kitten/components';
 import { EvaIconsPack } from '@ui-kitten/eva-icons';
 import { StatusBar } from 'expo-status-bar';
-import 'react-native-reanimated';
-import 'react-native-gesture-handler';
-import 'react-native-get-random-values';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
-import 'react-native-url-polyfill/auto';
 import { QueryClient, QueryClientProvider, setLogger } from 'react-query';
 import { Provider } from 'react-redux';
 import { PersistGate } from 'redux-persist/integration/react';

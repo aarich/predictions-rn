@@ -181,7 +181,7 @@ begin
       where_filter = 'p.is_public';
       order_by = 'p.trend_score DESC, p.created_at';
   elseif feed_type = 'following' then
-      where_filter = 'f.created_at IS NOT NULL AND p.check_date > current_date';
+      where_filter = 'f.created_at IS NOT NULL AND (p.check_date IS NULL OR p.check_date > current_date)';
       order_by = 'f.created_at DESC';
   elseif feed_type = 'notified' then 
       where_filter = 'f.created_at IS NOT NULL AND p.check_date < current_date';

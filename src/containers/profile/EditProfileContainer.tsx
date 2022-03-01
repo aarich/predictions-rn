@@ -52,7 +52,10 @@ const EditProfileContainer = () => {
         return;
       }
 
-      if ((fieldsToUpdate.username?.trim()?.length || 0) < 3) {
+      if (
+        typeof fieldsToUpdate.username === 'string' &&
+        fieldsToUpdate.username.trim().length < 3
+      ) {
         handleUserError('Username is too short!');
         return;
       }
