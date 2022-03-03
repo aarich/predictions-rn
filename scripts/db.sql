@@ -10,6 +10,7 @@ drop view profile_view;
 drop view post_view;
 drop view prediction_view;
 drop view comment_view;
+drop view data_stats;
 
 drop function trend_score;
 
@@ -430,6 +431,16 @@ begin
   END LOOP;
 end
 $$;
+
+-- Analytics
+
+CREATE OR REPLACE VIEW data_stats AS 
+SELECT sum(post_count)::integer as post_count, sum(profile_count)::integer as profile_count, sum(prediction_count)::integer as prediction_count, sum(comment_count)::integer as comment_count, created_date FROM (
+  SELECT COUNT(1) AS post_count, 0 AS profile_count, 0 AS prediction_count, 0 AS comment_count, date_trunc('day', post.created_at) AS created_date FROM post GROUP BY created_date UNION all
+  SELECT 0 AS post_count, COUNT(1) AS profile_count, 0 AS prediction_count, 0 AS comment_count, date_trunc('day', profile.created_at) AS created_date FROM profile GROUP BY created_date UNION ALL
+  SELECT 0 AS post_count, 0 AS profile_count, COUNT(1) AS prediction_count, 0 AS comment_count, date_trunc('day', prediction.created_at) AS created_date FROM prediction GROUP BY created_date UNION ALL
+  SELECT 0 AS post_count, 0 AS profile_count, 0 AS prediction_count, COUNT(1) AS comment_count, date_trunc('day', comment.created_at) AS created_date FROM comment GROUP BY created_date
+) v GROUP BY created_date;
 
 -- TRIGGERS
 CREATE OR REPLACE FUNCTION handle_manual_closed_post() RETURNS TRIGGER AS $$
