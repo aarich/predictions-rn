@@ -1,13 +1,14 @@
-import 'react-native-gesture-handler';
-import 'react-native-reanimated';
-import 'react-native-get-random-values';
-import 'react-native-url-polyfill/auto';
 import { CustomSchemaType } from '@eva-design/dss';
 import * as eva from '@eva-design/eva';
 import { ApplicationProvider, IconRegistry } from '@ui-kitten/components';
 import { EvaIconsPack } from '@ui-kitten/eva-icons';
 import { StatusBar } from 'expo-status-bar';
+import { StyleSheet } from 'react-native';
+import { GestureHandlerRootView } from 'react-native-gesture-handler';
+import 'react-native-get-random-values';
+import 'react-native-reanimated';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
+import 'react-native-url-polyfill/auto';
 import { QueryClient, QueryClientProvider, setLogger } from 'react-query';
 import { Provider } from 'react-redux';
 import { PersistGate } from 'redux-persist/integration/react';
@@ -57,30 +58,34 @@ export default function App() {
   const isDark = useIsDark();
 
   return (
-    <Provider store={store}>
-      <PersistGate loading={null} persistor={persistor}>
-        <QueryClientProvider client={queryClient}>
-          <IconRegistry icons={EvaIconsPack} />
-          <StatusBar style={isDark ? 'light' : 'dark'} />
-          <ApplicationProvider
-            {...eva}
-            theme={{ ...(isDark ? eva.dark : eva.light), ...theme }}
-            customMapping={customMapping}
-          >
-            <SafeAreaProvider>
-              <AlertProvider>
-                <PromptProvider>
-                  <ToastProvider>
-                    <UnsplashSearchProvider>
-                      <Navigation />
-                    </UnsplashSearchProvider>
-                  </ToastProvider>
-                </PromptProvider>
-              </AlertProvider>
-            </SafeAreaProvider>
-          </ApplicationProvider>
-        </QueryClientProvider>
-      </PersistGate>
-    </Provider>
+    <GestureHandlerRootView style={styles.flex}>
+      <Provider store={store}>
+        <PersistGate loading={null} persistor={persistor}>
+          <QueryClientProvider client={queryClient}>
+            <IconRegistry icons={EvaIconsPack} />
+            <StatusBar style={isDark ? 'light' : 'dark'} />
+            <ApplicationProvider
+              {...eva}
+              theme={{ ...(isDark ? eva.dark : eva.light), ...theme }}
+              customMapping={customMapping}
+            >
+              <SafeAreaProvider>
+                <AlertProvider>
+                  <PromptProvider>
+                    <ToastProvider>
+                      <UnsplashSearchProvider>
+                        <Navigation />
+                      </UnsplashSearchProvider>
+                    </ToastProvider>
+                  </PromptProvider>
+                </AlertProvider>
+              </SafeAreaProvider>
+            </ApplicationProvider>
+          </QueryClientProvider>
+        </PersistGate>
+      </Provider>
+    </GestureHandlerRootView>
   );
 }
+
+const styles = StyleSheet.create({ flex: { flex: 1 } });

@@ -220,6 +220,8 @@ const CreatePost = ({ loading, onCancel, onCreate }: Props) => {
           returnKeyType="done"
           keyboardType="url"
           onSubmitEditing={() => Keyboard.dismiss()}
+          autoCapitalize="none"
+          autoCorrect={false}
         />
         <FormCheckBox
           title="This is public"

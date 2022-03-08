@@ -27,6 +27,7 @@ const elements = [
   ),
   [
     { name: 'App Mockup', url: 'app-mockup.com' },
+    { name: 'Dreamhost', url: 'mrarich.com/url/dreamhostwh' },
     { name: 'Expo', url: 'expo.dev' },
     { name: 'GitHub', url: 'github.com' },
     { name: 'React Native', url: 'reactnative.dev' },

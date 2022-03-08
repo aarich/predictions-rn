@@ -168,6 +168,8 @@ const CreatePrediction = ({
         style={styles.item}
         returnKeyType="go"
         onSubmitEditing={onCreate}
+        autoCapitalize="none"
+        autoCorrect={false}
       />
       {onCreate ? (
         <Button label="Save" onPress={onCreate} style={styles.item} />
